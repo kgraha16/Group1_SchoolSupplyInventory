@@ -45,4 +45,8 @@ public class Item {
         location = newLocation;
     }
 
+    public boolean isEqual(Item item) {
+        return item.getSupplyID() == supplyID;
+    }
+
 }
