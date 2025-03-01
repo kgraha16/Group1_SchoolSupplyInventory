@@ -8,9 +8,13 @@ import main.java.SchoolSupplyInventory.util.Item;
 
 public class logic {
     ArrayList<Item> items;
+    String username;
+    String password;
 
-    public logic() {
+    public logic(String user, String psw) {
         items = new ArrayList<>();
+        username = user;
+        password = psw;
     }
 
     // Doesn't work yet, will need a way to get connection from jdbc class and an insertData method that returns a boolean
@@ -45,6 +49,6 @@ public class logic {
         statement.setString(i++, item.getDescription());
         statement.setString(i, item.getLocation());
 
-        return jdbc.insertData();
+        return jdbc.insertData(username, password, statement);
     }
 }
