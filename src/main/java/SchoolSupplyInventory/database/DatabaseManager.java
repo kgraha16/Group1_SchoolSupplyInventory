@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import SchoolSupplyInventory.util.Item;
+import javafx.scene.control.Alert;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:mysql://schoolsupplyinventory.cnmcooc42w90.us-east-2.rds.amazonaws.com:3306/Group1_SchoolSupplyInventory";
@@ -20,6 +21,16 @@ public class DatabaseManager {
     // Insert an Item into the Database
     public void insertItem(int supplyID, int manufacturerID, String brand, double price, int quantity, String itemDescription, String storageLocation) {
         String sql = "INSERT INTO Item (SupplyID, ManufacturerID, Brand, Price, Quantity, ItemDescription, StorageLocation) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        List<Item> items = getAllItems();
+
+        for (Item item : items) {
+            if (item.getSupplyID() == supplyID) {
+                Alert error = new Alert(Alert.AlertType.ERROR, "SupplyID already exists");
+                error.show();
+                return;
+            }
+        }
 
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
