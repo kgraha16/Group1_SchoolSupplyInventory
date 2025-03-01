@@ -1,4 +1,4 @@
-package SchoolSupplyInventory;
+package SchoolSupplyInventory.database;
 
 
 import java.sql.Connection;

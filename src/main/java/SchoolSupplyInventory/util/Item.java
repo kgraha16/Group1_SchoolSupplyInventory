@@ -1,4 +1,4 @@
-package SchoolSupplyInventory;
+package SchoolSupplyInventory.util;
 
 import javafx.beans.property.*;
 

@@ -1,8 +1,10 @@
-package SchoolSupplyInventory;
+package SchoolSupplyInventory.database;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import SchoolSupplyInventory.util.Item;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:mysql://schoolsupplyinventory.cnmcooc42w90.us-east-2.rds.amazonaws.com:3306/Group1_SchoolSupplyInventory";

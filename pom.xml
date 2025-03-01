@@ -72,7 +72,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>SchoolSupplyInventory.MainApp</mainClass>
+                    <mainClass>SchoolSupplyInventory.ui.MainApp</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -98,7 +98,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>SchoolSupplyInventory.MainApp</mainClass>
+                                    <mainClass>SchoolSupplyInventory.ui.MainApp</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
