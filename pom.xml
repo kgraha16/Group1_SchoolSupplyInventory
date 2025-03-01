@@ -41,6 +41,27 @@
             <version>17</version>
         </dependency>
 
+        <!-- JavaFX Swing (For JFXPanel and Swing interop) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>17</version>
+        </dependency>
+
+        <!-- JavaFX Base (Required for core JavaFX functionality) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>17</version>
+        </dependency>
+
+        <!-- JavaFX Graphics (Ensures UI rendering works) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>17</version>
+        </dependency>
+
         <!-- JUnit (For Writing Tests, Optional) -->
         <dependency>
             <groupId>junit</groupId>
