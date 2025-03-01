@@ -1,0 +1,24 @@
+# macOS system files
+.DS_Store
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Build and dependency files
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+# Gradle files (if using Gradle)
+.gradle/
+build/
+
+# Node modules (if applicable)
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
