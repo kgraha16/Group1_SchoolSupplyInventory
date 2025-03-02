@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: SchoolSupplyInventory.TestUserInterface
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s -- in SchoolSupplyInventory.TestUserInterface
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.562 s -- in SchoolSupplyInventory.TestUserInterface
