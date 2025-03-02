@@ -1,8 +1,4 @@
-main/java/SchoolSupplyInventory/ui/ui.class
-SchoolSupplyInventory/DatabaseConnector.class
-SchoolSupplyInventory/Item.class
-SchoolSupplyInventory/MainApp.class
-SchoolSupplyInventory/DatabaseManager.class
-main/java/SchoolSupplyInventory/logic/logic.class
-main/java/SchoolSupplyInventory/database/jdbc.class
-main/java/SchoolSupplyInventory/util/helper.class
+SchoolSupplyInventory/database/DatabaseConnector.class
+SchoolSupplyInventory/util/Item.class
+SchoolSupplyInventory/ui/MainApp.class
+SchoolSupplyInventory/database/DatabaseManager.class
