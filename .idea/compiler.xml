@@ -9,5 +9,8 @@
         <module name="school-supply-inventory" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Group1_SchoolSupplyInventory" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
