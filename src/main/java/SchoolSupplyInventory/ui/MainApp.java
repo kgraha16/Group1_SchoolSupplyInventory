@@ -18,6 +18,11 @@ public class MainApp extends Application {
     private DatabaseManager dbManager = new DatabaseManager();
     private TableView<Item> tableView = new TableView<>();
 
+    private Button addItemButton;
+    private Button updateItemButton;
+    private Button deleteItemButton;
+    private Button viewItemsButton;
+
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("School Supply Inventory");
@@ -30,10 +35,10 @@ public class MainApp extends Application {
         setupTableView();
 
         // **Buttons**
-        Button addItemButton = new Button("Add Item");
-        Button updateItemButton = new Button("Update Item Quantity");
-        Button deleteItemButton = new Button("Delete Item");
-        Button viewItemsButton = new Button("View Items");
+        this.addItemButton = new Button("Add Item");
+        this.updateItemButton = new Button("Update Item Quantity");
+        this.deleteItemButton = new Button("Delete Item");
+        this.viewItemsButton = new Button("View Items");
 
         // **Event Handlers**
         addItemButton.setOnAction(e -> showAddItemDialog());
@@ -50,6 +55,23 @@ public class MainApp extends Application {
         Scene scene = new Scene(layout, 800, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    // Getters for UI Buttons
+    public Button getAddItemButton() {
+        return addItemButton;
+    }
+
+    public Button getUpdateItemButton() {
+        return updateItemButton;
+    }
+
+    public Button getDeleteItemButton() {
+        return deleteItemButton;
+    }
+
+    public Button getViewItemsButton() {
+        return viewItemsButton;
     }
 
     // **Setup TableView Columns**
