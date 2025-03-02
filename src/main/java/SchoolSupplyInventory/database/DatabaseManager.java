@@ -1,8 +1,11 @@
-package SchoolSupplyInventory;
+package SchoolSupplyInventory.database;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import SchoolSupplyInventory.util.Item;
+import javafx.scene.control.Alert;
 
 public class DatabaseManager {
     private static final String URL = "jdbc:mysql://schoolsupplyinventory.cnmcooc42w90.us-east-2.rds.amazonaws.com:3306/Group1_SchoolSupplyInventory";
@@ -18,6 +21,12 @@ public class DatabaseManager {
     // Insert an Item into the Database
     public void insertItem(int supplyID, int manufacturerID, String brand, double price, int quantity, String itemDescription, String storageLocation) {
         String sql = "INSERT INTO Item (SupplyID, ManufacturerID, Brand, Price, Quantity, ItemDescription, StorageLocation) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        if (itemExists(supplyID)) {
+            Alert error = new Alert(Alert.AlertType.ERROR, "SupplyID already exists");
+            error.show();
+            return;
+        }
 
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -72,15 +81,20 @@ public class DatabaseManager {
     public void deleteItem(int supplyID) {
         String sql = "DELETE FROM Item WHERE SupplyID = ?";
 
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        if (itemExists(supplyID)) {
+            try (Connection conn = getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, supplyID);
-            int rowsAffected = stmt.executeUpdate();
-            System.out.println("Item deleted successfully! Rows affected: " + rowsAffected);
-        } catch (SQLException e) {
-            System.out.println("Error deleting item");
-            e.printStackTrace();
+                stmt.setInt(1, supplyID);
+                int rowsAffected = stmt.executeUpdate();
+                System.out.println("Item deleted successfully! Rows affected: " + rowsAffected);
+            } catch (SQLException e) {
+                System.out.println("Error deleting item");
+                e.printStackTrace();
+            }
+        } else {
+            Alert error = new Alert(Alert.AlertType.ERROR, "Item does not exist");
+            error.show();
         }
     }
 
@@ -88,17 +102,22 @@ public class DatabaseManager {
     public void updateItemQuantity(int supplyID, int newQuantity) {
         String sql = "UPDATE Item SET Quantity = ? WHERE SupplyID = ?";
 
-        try (Connection conn = getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        if (itemExists(supplyID)) {
+            try (Connection conn = getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, newQuantity);
-            stmt.setInt(2, supplyID);
+                stmt.setInt(1, newQuantity);
+                stmt.setInt(2, supplyID);
 
-            int rowsAffected = stmt.executeUpdate();
-            System.out.println("Item quantity updated! Rows affected: " + rowsAffected);
-        } catch (SQLException e) {
-            System.out.println("Error updating item");
-            e.printStackTrace();
+                int rowsAffected = stmt.executeUpdate();
+                System.out.println("Item quantity updated! Rows affected: " + rowsAffected);
+            } catch (SQLException e) {
+                System.out.println("Error updating item");
+                e.printStackTrace();
+            }
+        } else {
+            Alert error = new Alert(Alert.AlertType.ERROR, "Item does not exist");
+            error.show();
         }
     }
 
@@ -120,5 +139,19 @@ public class DatabaseManager {
 
         // Delete an Item
         db.deleteItem(1);
+    }
+
+    public boolean itemExists(int supplyId) {
+        List<Item> items = getAllItems();
+        boolean itemExists = false;
+
+        for (Item item : items) {
+            if (item.getSupplyID() == supplyId) {
+                itemExists = true;
+                break;
+            }
+        }
+
+        return itemExists;
     }
 }

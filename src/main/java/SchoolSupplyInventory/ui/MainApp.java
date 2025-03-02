@@ -1,4 +1,4 @@
-package SchoolSupplyInventory;
+package SchoolSupplyInventory.ui;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -10,6 +10,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.List;
+
+import SchoolSupplyInventory.database.DatabaseManager;
+import SchoolSupplyInventory.util.Item;
 
 public class MainApp extends Application {
     private DatabaseManager dbManager = new DatabaseManager();
