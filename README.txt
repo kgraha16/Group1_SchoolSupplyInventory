@@ -4,6 +4,8 @@ Daria Ilchenko (dilchenk)
 Brandon Schleigh (bbschlei)
 Kurtis Styers (ksteyers1)
 
+Deliverable 4 Video: https://www.youtube.com/watch?v=GN2p4s29_8s
+
 How to build:
 - install Maven
 	- Windows: phoenixnap.com/kb/install-maven-windows
