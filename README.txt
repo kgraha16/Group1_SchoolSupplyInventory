@@ -1,3 +1,9 @@
+Contributors:
+Kris Graham (kgraha16)
+Daria Ilchenko (dilchenk)
+Brandon Schleigh (bbschlei)
+Kurtis Styers (ksteyers1)
+
 How to build:
 - install Maven
 	- Windows: phoenixnap.com/kb/install-maven-windows
